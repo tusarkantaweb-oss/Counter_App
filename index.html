@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter_App</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #input {
+            font-size: 40px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn1 {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn2 {
+            background-color: #ffc107;
+            color: black;
+        }
+
+        .btn3 {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Counter App</h2>
+        <div class="input" id="input">0</div>
+        <button class="btn1" id="increase">Increase</button>
+        <button class="btn2" id="reset">Reset</button>
+        <button class="btn3" id="decrease">Decrease</button>
+
+    </div>
+    <script>
+        const InputBtn = document.getElementById('input');
+        const IncreaseBtn = document.getElementById('increase');
+        const ResetBtn = document.getElementById('reset');
+        const DecreaseBtn = document.getElementById('decrease');
+
+        let count = 0;
+        const savedCount = localStorage.getItem("count");
+
+        if (savedCount !== null) {
+            count = Number(savedCount);
+            InputBtn.textContent = count;
+        }
+        IncreaseBtn.addEventListener('click', () => {
+            count++;
+            InputBtn.textContent = count;
+            localStorage.setItem("count", count);
+        });
+        IncreaseBtn.addEventListener('click', () => {
+            count++;
+            InputBtn.textContent = count;
+            localStorage.setItem("count",count)
+        });
+        ResetBtn.addEventListener('click', () => {
+            count = 0;
+            InputBtn.textContent = count;
+        });
+        DecreaseBtn.addEventListener('click', () => {
+            if(count>0){
+            count--;
+            InputBtn.textContent = count;
+            InputBtn.localStorage = count;
+            } 
+        });
+    </script>
+</body>
+
+</html>
